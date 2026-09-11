@@ -1,2 +1,4 @@
-# ete4990_fa26_project1
+# ETE4990 FA26 Project 1
 A simple soccer game of 5v5 written in Python.
+
+There are a total of 17 classes, with most falling under a certain parent class: Team, Banner, Game Object, and a standalone Sound class.
