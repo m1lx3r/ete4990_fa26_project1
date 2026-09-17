@@ -1,10 +1,11 @@
-# Author: Moises Santander
-# Course: ETE 4990 FA2026
-# Purpose: Calls classes for other banners: StartScreen, EndScreen, RegularBanner, CelebrationBanner.
+""" Author: Moises Santander """
+""" Course: ETE 4990 FA2026 """
+""" Purpose: Calls classes for other banners: StartScreen, EndScreen, RegularBanner, CelebrationBanner. """
 import pygame
 
-# define this base Banners class to open all banner types
+# this base Banners class opens all banner types
 class Banners:
+    # starts game
     pygame.init()
     screen = pygame.display.set_mode((800, 500))
     isRunning = True # bool for whether the program is running
@@ -13,7 +14,7 @@ class Banners:
         for event in pygame.event.get():
             # user must click "X" to exit program
             if event.type == pygame.QUIT:
-                isRunning = False
+                isRunning = False   
 
         screen.fill("green")
 
@@ -35,16 +36,28 @@ class Banners:
 # StartScreen class:
 # - start/exit buttons to start/end program
 # - prompt user to pick team+rename team names; else keep default Team1+Team2 names
+class StartScreen():
+    def __init__(self, font, buttonType):
+        self.font = font
 
 # EndScreen class:
 # - stop all objects
 # - display final score
 # - option to restart match or end game (i.e. restart  or end program)
+class EndScreen():
+    def __init__(self, font):
+        self.font = font
 
 # RegularBanner class:
 # - contains scoreboard, timer, and team names
 # - is a parent of Scoreboard and Timer, which are displayed during play
+class RegularBanner():
+    def __init__(self, font):
+        self.font = font
 
 # CelebrationBanner class:
 # - displays when a team scores
 # - resets player and Ball layout(i.e. configuration at the start of the game)
+class CelebrationBanner():
+    def __init__(self, font):
+        self.font = font
