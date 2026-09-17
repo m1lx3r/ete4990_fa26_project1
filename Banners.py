@@ -3,12 +3,10 @@
 # Purpose: Calls classes for other banners: StartScreen, EndScreen, RegularBanner, CelebrationBanner.
 import pygame
 
-# define this base class to open all banner types
+# define this base Banners class to open all banner types
 class Banners:
     pygame.init()
-
     screen = pygame.display.set_mode((800, 500))
-
     isRunning = True # bool for whether the program is running
 
     while isRunning:
@@ -19,7 +17,21 @@ class Banners:
 
         screen.fill("green")
 
+        startButton = pygame.Rect(150, 300, 200, 80)
+        endButton = pygame.Rect(450, 300, 200, 80)
+
+        # list of buttons
+        buttList = [startButton, endButton]
+
+        pygame.draw.rect(screen, "black", startButton)
+        pygame.draw.rect(screen, "black", endButton)
+
+        # flip() the display to put your work on screen
+        pygame.display.flip()
+
     pygame.quit()
+
+
 # StartScreen class:
 # - start/exit buttons to start/end program
 # - prompt user to pick team+rename team names; else keep default Team1+Team2 names
