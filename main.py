@@ -104,11 +104,23 @@ team2.show_team()
 #Ask which team the user wants to control
 team_choice = input("\nChoose Team 1 or Team 2: ")
 
-if team_choice == "1":
-    user_team = team1
+#Asks which team the user wants to control
+while True:
+    team_choice = input("\nChoose Team 1 or Team 2 (enter 1 or 2): ").strip()
 
-else:
-    user_team = team2
+    if team_choice == "1":
+        user_team = team1
+        break
+
+    elif team_choice == "2":
+        user_team = team2
+        break
+
+    else:
+        print("Invalid choice. Please enter 1 or 2.")
+
+print("\nYour team is", user_team.name)
+print("You will control whichever teammate has the ball.")
 
 print("\nYour team is", user_team.name)
 print("You will control whichever teammate has the ball.")
