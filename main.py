@@ -9,9 +9,6 @@ from players import Goalkeeper, Striker, Midfielder, Defender1, Defender2
 #Import Team class and JSON functions
 from teams import Team, save_teams, load_teams
 
-# import Banners class
-from Banners import Banners, StartScreen, EndScreen, RegularBanner, CelebrationBanner
-
 #Ask user to create one soccer team
 def create_team(side):
     print("\nCreate your soccer team")
@@ -120,3 +117,6 @@ while True:
 
 print("\nYour team is", user_team.name)
 print("You will control whichever teammate has the ball.")
+
+# import Banners class
+from Banners import Banners, StartScreen, EndScreen, RegularBanner, CelebrationBanner
