@@ -88,8 +88,8 @@ def save_teams(team1, team2):
             team_data["players"].append(player_data)
 
         game_data.append(team_data)
-#recieved some help from Google on how to indent 
-#the game data and what dump does in Python
+    
+    #the game data and what dump does in Python
     with open("teams.json", "w") as file:
         json.dump(game_data, file, indent=4)
 
