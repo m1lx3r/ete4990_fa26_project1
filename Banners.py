@@ -1,7 +1,12 @@
-""" Author: Moises Santander """
-""" Course: ETE 4990 FA2026 """
-""" Purpose: Calls classes for other banners: StartScreen, EndScreen, RegularBanner, CelebrationBanner. """
+"""
+Author: Moises Santander
+Course: ETE 4990 FA2026
+Purpose: Calls classes for other banners: StartScreen, EndScreen, RegularBanner, CelebrationBanner.
+"""
 import pygame
+
+# Define global constants
+
 
 #THIS IS WHAT GETS THE GUI UP:
 pygame.init()
@@ -14,7 +19,7 @@ while isRunning:
         if event.type == pygame.QUIT:
             isRunning = False
                 
-    screen.fill("green")
+    screen.fill("#57A839")
     font = pygame.font.Font(None, 36)
 
     # Define start button
@@ -30,6 +35,9 @@ while isRunning:
     endText = font.render("END", True, "white")
     endTextRect = endText.get_rect(center=endButton.center)
     screen.blit(endText, endTextRect)
+
+    # Keep list of buttons
+    buttList = [startButton, endButton]
 
     # flip() the display to put your work on screen
     pygame.display.flip()
@@ -47,19 +55,34 @@ pygame.quit()
 """ This base Banners class holds all banner types and forwards to the Banner that is actually called. """
 class Banners:
     def __init__(self, font):
-        # dictionary of screen options
-        self.screens = {"start": StartScreen(font),
-                        "play": RegularBanner(font),
-                        "celebration": CelebrationBanner(font),
-                        "end": EndScreen(font)}
-        self.active_name = "start"
+        # dictionary of banner names
+        self.screens = {"Start": StartScreen(font),
+                        "Play": RegularBanner(font),
+                        "Celebration": CelebrationBanner(font),
+                        "End": EndScreen(font)}
+        self.currentName = "Start"
 
     startButton = pygame.Rect(150, 300, 200, 80)
     endButton = pygame.Rect(450, 300, 200, 80)
-    
-    # list of buttons
-    buttList = [startButton, endButton]
 
+    @property
+    def current(self):
+        return self.screens[self.currentName]
+
+    def show(self, name):
+        if name not in self.screens:
+            raise ValueError(f"Unknown banner: {name}")
+
+        self.currentName = name
+
+    def handleEvent(self, event):
+        return self.current.handleEvent(event)
+
+    def update(self, dt):
+        return self.current.update(dt)
+
+    def draw(self, surface):
+        self.current.draw(surface)
 
 # StartScreen class:
 # - start/exit buttons to start/end program
