@@ -3,6 +3,9 @@ Author: Moises Santander
 Course: ETE 4990 FA2026
 Purpose: Calls classes for other banners: StartScreen, EndScreen, RegularBanner, CelebrationBanner.
 """
+
+import unittest
+
 import pygame
 
 # Define global constants
