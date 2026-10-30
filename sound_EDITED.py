@@ -2,7 +2,6 @@
 # Course: ETE 4990 
 # Purpose: Load and play the kicking, goal celebration, and background fan sounds
 
-
 import pygame
 
 #Sound class for the soccer game
