@@ -2,10 +2,9 @@
 # Course: ETE 4990 
 # Purpose: Creates teams and different position groups
 
-
 import json
 
-from players import Goalkeeper, Striker, Midfielder, Defender1, Defender2
+from players_EDITED import Player, Goalkeeper, Striker, Midfielder, Defender, Defender1, Defender2
 
 #Team class for the soccer game
 
