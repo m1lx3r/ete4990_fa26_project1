@@ -5,11 +5,13 @@
 import pygame
 
 #Import player classes
-from players import Goalkeeper, Striker, Midfielder, Defender1, Defender2
+from players_EDITED import Player, Goalkeeper, Striker, Midfielder, Defender, Defender1, Defender2
 
 #Import Team class and JSON functions
 from teams import Team, save_teams, load_teams
 
+#Import Banners classes
+from Banners_EDITED import Banners, StartScreen, EndScreen, RegularBanner, CelebrationBanner
 
 #Ask for a valid team name
 def get_team_name():
@@ -147,6 +149,3 @@ while True:
 
 print("\nYour team is", user_team.name)
 print("You will control whichever teammate has the ball.")
-
-#Import Banners classes
-from Banners import Banners, StartScreen, EndScreen, RegularBanner, CelebrationBanner
